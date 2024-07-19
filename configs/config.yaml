@@ -1,0 +1,41 @@
+defaults:
+  - _self_
+  - hydra: defaults
+  - model: gaussian
+  - dataset: re10k
+  - loss: [reconstruction]
+
+config:
+  exp_name: "debug"
+  file: "config.yaml"
+
+data_loader:
+  batch_size: 16
+  num_workers: 16
+
+train:
+  logging: true
+  mixed_precision: #32-true, 16-mixed
+  num_gpus: 1
+  load_weights_folder:
+  ema:
+    use: true
+    update_every: 10
+    update_after_step: 100
+    beta: 0.9999
+
+optimiser:
+  learning_rate: 1e-4
+  num_epochs: 20
+  scheduler_lambda_step_size: 60000
+
+run:
+  resume_ckpt: null
+  dirpath: null
+  debug: false
+  random_seed: 42
+  git_hash: null
+  log_frequency: 250
+  save_frequency: 5000
+  val_frequency: 5000
+  num_keep_ckpts: 5

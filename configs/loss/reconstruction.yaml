@@ -1,0 +1,10 @@
+mse:
+  weight: 1.0
+  type: l1
+
+ssim:
+  weight: 0.85
+
+lpips:
+  weight: 0.01
+  apply_after_step: 50000

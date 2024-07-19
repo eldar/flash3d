@@ -1,0 +1,21 @@
+name: kitti
+data_path: /scratch/shared/nfs1/eldar/data/kitti_raw
+pose_path: /users/cxzheng/code/facilitate4d/datasets/kitti_raw/orb-slam_poses
+depth_path: null
+split_path: /users/cxzheng/code/facilitate4d/splits
+split: tulsiani2 # eigen_zhou", "eigen_full", "odom", "benchmark", "eldar
+png: false
+
+height: 128
+width: 384
+
+znear: 0.01
+zfar: 100.0
+stereo: true
+color_aug: false
+keep_aspect_ratio: false
+precise_intrinsics: true
+flip_left_right: false
+pad_border_aug: 0
+
+scale_pose_by_depth: false

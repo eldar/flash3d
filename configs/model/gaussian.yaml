@@ -1,0 +1,35 @@
+defaults:
+  - depth: unidepth
+  - backbone: resnet
+
+name: unidepth
+frame_ids: [0, -1, 1]
+scales: [0]
+gauss_novel_frames: [1, 2]
+
+min_depth: 0.1
+max_depth: 100
+
+# gaussian parameters
+gaussians_per_pixel: 2
+gaussian_rendering: true
+randomise_bg_colour: true
+max_sh_degree: 1
+scaled_offset: false
+one_gauss_decoder: false
+predict_offset: true
+bg_colour: [0.5, 0.5, 0.5]
+shift_rays_half_pixel: forward
+
+depth_type: depth_inc
+depth_scale: 1.0
+xyz_scale: 1e-02
+opacity_scale: 1e-3
+scale_scale: 1e-1
+sh_scale: 1.0
+
+scale_lambda: 0.01
+depth_bias: -0.1
+xyz_bias: 0.0
+opacity_bias: 0.0
+scale_bias: 0.02

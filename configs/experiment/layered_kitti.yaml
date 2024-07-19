@@ -1,0 +1,27 @@
+# @package _global_
+config:
+  exp_name: debug
+
+defaults:
+  - override /dataset: kitti
+  - override /model: gaussian
+  - override /loss: [regularization, reconstruction]
+
+optimiser:
+  scheduler_lambda_step_size: 500000
+
+train:
+  scale_pose_by_depth: true
+  use_gt_poses: true
+
+model:
+  name: unidepth
+  gauss_novel_frames: [1, 2]
+  renderer_w_pose: true
+  scale_with_depth: false
+  opacity_scale: 1.0
+  depth_scale: 0.1
+  xyz_scale: 0.2
+  max_depth: 20
+  depth_cond: true
+  

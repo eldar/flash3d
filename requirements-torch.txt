@@ -1,0 +1,6 @@
+numpy==1.26.4
+torch==2.2.2
+torchvision
+torchaudio
+xformers==0.0.25.post1
+

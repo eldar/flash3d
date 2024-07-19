@@ -1,0 +1,21 @@
+name: nyuv2
+split: original
+data_path: /scratch/shared/beegfs/eldar/data/nyuv2_raw
+colmap_path: /work/eldar/data/datasets/nyuv2_colmap
+split_path: splits/nyuv2/val_files.txt
+
+height: 256
+width: 384
+
+znear: 0.01
+zfar: 100.0
+resize: true
+max_fov: 100.0
+
+color_aug: false
+skip_bad_shape: false
+crop_principal_point: false
+
+subset: -1
+pad_border_aug: 32
+scale_pose_by_depth: true

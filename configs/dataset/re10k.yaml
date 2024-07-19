@@ -1,0 +1,28 @@
+name: re10k
+split: original
+data_path: data/RealEstate10K 
+depth_path:
+unpack_pcl_tar: false
+preload_depths: false
+ransac_on_the_fly: false
+test_split_path: splits/re10k_mine_filtered/val_files.txt
+
+height: 256
+width: 384
+
+znear: 0.01
+zfar: 100.0
+max_fov: 100.0
+
+from_tar: false
+copy_to_local: true
+color_aug: false
+skip_bad_shape: true
+dilation: random
+max_dilation: 15
+pad_border_aug: 32
+subset: -1  # use subset frames for small set overfitting
+
+frame_sampling_method: random
+scale_pose_by_depth: true
+test_split: mine

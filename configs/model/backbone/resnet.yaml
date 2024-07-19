@@ -1,0 +1,7 @@
+name: resnet
+num_layers: 50 # 18, 34, 50, 101, 152
+num_ch_dec: [32,32,64,128,256]
+resnet_bn_order: pre_bn # monodepth, pre_bn
+weights_init: pretrained
+upsample_mode: nearest
+depth_cond: true
