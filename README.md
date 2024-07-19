@@ -98,5 +98,23 @@ python train.py \
   train.logging=false 
 ```
 
+For multiple GPU, we can run with this command:
+```sh
+sh train.sh
+```
+You can modify the cluster information in ```configs/hydra/cluster```.
+
+
+## BibTeX
+```
+@article{szymanowicz2024flash3d,
+      author = {Szymanowicz, Stanislaw and Insafutdinov, Eldar and Zheng, Chuanxia and Campbell, Dylan and Henriques, Joao and Rupprecht, Christian and Vedaldi, Andrea},
+      title = {Flash3D: Feed-Forward Generalisable 3D Scene Reconstruction from a Single Image},
+      journal = {arxiv},
+      year = {2024},
+}
+```
+
+
 
 
