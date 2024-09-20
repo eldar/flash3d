@@ -74,7 +74,7 @@ In particular, we provide pre-processed COLMAP cache containing sparse point clo
 The last two commands filter the training and testing set from any missing video sequences.
 
 ```sh
-sh datasets/dowload_realestate10k_colmap.sh
+sh datasets/download_realestate10k_colmap.sh
 python -m datasets.preprocess_realestate10k -d data/RealEstate10K -s train
 python -m datasets.preprocess_realestate10k -d data/RealEstate10K -s test
 ```
