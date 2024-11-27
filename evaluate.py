@@ -58,20 +58,6 @@ def evaluate(model, cfg, evaluator, dataloader, device=None, save_vis=False):
     dataloader_iter = iter(dataloader)
     for k in tqdm([i for i in range(len(dataloader.dataset) // cfg.data_loader.batch_size)]):
 
-        if save_vis:
-            out_dir = Path("/work/cxzheng/3D/splatvideo/eldar/visual_results/images")
-            out_dir.mkdir(exist_ok=True)
-            print(f"saving images to: {out_dir.resolve()}")
-            seq_name = dataloader.dataset._seq_keys[k]
-            out_out_dir = out_dir / seq_name
-            out_out_dir.mkdir(exist_ok=True)
-            out_pred_dir = out_out_dir / f"pred"
-            out_pred_dir.mkdir(exist_ok=True)
-            out_gt_dir = out_out_dir / f"gt"
-            out_gt_dir.mkdir(exist_ok=True)
-            out_dir_ply = out_out_dir / "ply"
-            out_dir_ply.mkdir(exist_ok=True)
-
         try:
             inputs = next(dataloader_iter)
         except Exception as e:
@@ -83,7 +69,21 @@ def evaluate(model, cfg, evaluator, dataloader, device=None, save_vis=False):
                     print("Failed to read example {}".format(k))
                     continue
             raise e
-        
+
+        if save_vis:
+            out_dir = Path("/work/cxzheng/3D/splatvideo/eldar/visual_results/images")
+            out_dir.mkdir(exist_ok=True)
+            print(f"saving images to: {out_dir.resolve()}")
+            seq_name = inputs[("frame_id", 0)][0].split("+")[1]
+            out_out_dir = out_dir / seq_name
+            out_out_dir.mkdir(exist_ok=True)
+            out_pred_dir = out_out_dir / f"pred"
+            out_pred_dir.mkdir(exist_ok=True)
+            out_gt_dir = out_out_dir / f"gt"
+            out_gt_dir.mkdir(exist_ok=True)
+            out_dir_ply = out_out_dir / "ply"
+            out_dir_ply.mkdir(exist_ok=True)
+
         with torch.no_grad():
             if device is not None:
                 to_device(inputs, device)

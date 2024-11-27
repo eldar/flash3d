@@ -317,8 +317,7 @@ class Re10KDataset(data.Dataset):
             else:
                 xyd = None
             
-            input_frame_idx = src_and_tgt_frame_idxs[0]
-            timestamp = self._seq_data[seq_key]["timestamps"][input_frame_idx]
+            timestamp = self._seq_data[seq_key]["timestamps"][frame_idx]
             inputs[("frame_id", 0)] = f"{self.split_name_for_loading}+{seq_key}+{timestamp}"
 
             inputs[("K_tgt", frame_name)] = inputs_K_tgt
